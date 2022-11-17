@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | card details form for learning purpose</title>
+  <script src ="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+
+ 
+</head>
+<body>
+  <main>
+    <div class="bg-container">
+      <div class="content">
+        <div class="out-container">
+        <div class="card-container">
+          <div class="card card-front">
+            <div class="card-logo"></div>
+            <div id="card-number">0000 0000 0000 0000</div> 
+            <div class="card-name-date">
+              <div id="card-name">
+                Jane Appleseed
+              </div>
+              <div class="card-date">
+                <span id ="card-month">00</span>/<span id ="card-year">00</span>
+              </div>
+            </div>
+            
+            </div>
+          <div class="card card-bg">
+            <div id="card-cvc" class="cvc">000</div> 
+          </div>
+        </div>
+
+        <div class="form-container" >
+           <form action="#" class="form-flex" id="cardform">
+            <div class="edit-name">
+              <label for="name" > Cardholder Name </label> 
+              <input type="text" placeholder="e.g. Jane Appleseed" id="name">
+              <div id="err-text" class="error"></div>
+            </div>
+            
+            <div class="edit-number">
+              <label for="cardnumber" > Card Number</label>
+              <input type="text" title=" 16 character long number please!" placeholder="e.g. 1234 5678 9123 0000" id="cardnumber" onkeypress="return cardformat(this, event)" >
+              <div id="err-number" class="error"></div>
+            </div>
+
+
+            <div class="date-cvc">
+              <div class="date-container">
+                <label for="exp-date" > Exp. Date (MM/YY)</label>
+                <input type="text" placeholder="MM" id="exp-date"  maxlength="2" >
+                <input type="text" placeholder="YY" id="exp-year"  maxlength="2" >
+                <div id="err-date" class="error"></div>
+              </div>
+              <div class="cvc-conatiner">
+                <label for="cvc" > cvc</label>
+                <input type="text" placeholder="e.g. 123" id="cvc"  maxlength="4">
+                <div id="err-cvc" class="error"></div>
+              </div>
+            </div>
+            <input type="submit" value="Confirm" id="confirm">
+
+           </form>
+           <form action="#" class="form-flex centered" id="thankform">
+             <div class="thankimg"></div>
+            
+            <h2> Thank you! </h2>
+            
+            <div class="added"> We've added your card details</div>
+            <input type="button" value="Continue" id="continue" onclick= "location.reload();">
+            
+          </form>
+          
+        </div>
+        
+        <div class="attribution">
+          Challenge by <a href="https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw/" target="_blank">Frontend Mentor</a>. 
+          Coded by <a href="https://www.frontendmentor.io/profile/Szabolcs-Zeg" target="_blank">Szabolcs</a>. <br>
+          (This page does not collect any data. Made for learning purposes only.)
+
+        </div>
+      </div>
+     
+    
+    
+    </div> 
+  </div>
+  </main>
+   
+  <script>
+     function cardformat(item,e)
+     {
+      var st=item.value;
+      st =st.replace(/[" "]/gi,"");
+      st = st.replace(/(.{4})/g,'$1 ');
+      item.value = st;
+     }
+  </script>
+</body>
+</html>
